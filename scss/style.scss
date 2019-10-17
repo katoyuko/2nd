@@ -1,0 +1,184 @@
+@import "setting/color";
+@import "mixin/breakpoint";
+
+.navbar{
+  background-color: $color-purple!important;
+  padding: 0 140px;
+  color: $color-white;
+  height: 100px;
+
+  // 1179px以下
+  @include mq('tab'){
+    height: 90px;
+    padding: 0 50px;
+  }
+  // 767px以下
+  @include mq('sp'){
+    height: 80px;
+  }
+}
+
+.navbar-collapse .navbar-nav .nav-link{
+  color: $color-white;
+  padding: 0;  //デフォルトでpadding 8pxだったので
+} 
+
+.navbar-collapse .navbar-nav .nav-link.active,
+.navbar-collapse .navbar-nav .nav-link:hover{
+  color: $color-white;  
+}
+
+.nav li{
+    padding: 0 0 0.5px 30px;
+    font-size: 16px;
+    .active{
+      border-bottom: 3px solid red;
+    }
+}
+
+.home-inner {
+  height: 600px;
+  background-image: url(../images/nav.jpeg);
+  opacity: 0.6;
+}
+
+.caption {
+  width: 100%;
+  /*要素がこれ以上小さくならない幅*/
+  min-width: 100%;
+  /* 位置は絶対Topから249pxのところになる */
+  position: absolute;
+  top: 249px;
+  /* 重なり順番を指定。大きい数字であればあるほど、一番上にくる */
+  z-index: 1;
+  color: $color-black;
+  top: 249px;
+  h1{
+    padding-bottom: 12px;
+    font-size: 68px;
+    font-weight: bold;
+    // 1179px以下
+    @include mq('tab'){
+      font-size: 55px;
+    }
+    // 767px以下
+    @include mq('sp'){
+      font-size: 40px;
+    }
+  }
+  h3{
+    margin-bottom: 82px;
+    font-size: 38px;
+    font-weight: bold;
+    // 1179px以下
+    @include mq('tab'){
+      font-size: 45px;
+    }
+    // 767px以下
+    @include mq('sp'){
+      font-size: 35px;
+    }
+  }
+}
+
+.btn-purple{
+  background-color: $color-purple;
+  color: $color-white;
+  font-size: 38px;
+  font-weight: bold;
+  padding: 17px 81px;
+  border-radius: 12px;
+  &:hover{
+    color: $color-white;
+  }
+  // 1179px以下
+  @include mq('tab'){
+    font-size: 30px;
+  }
+  // 767px以下
+  @include mq('sp'){
+    font-size: 25px;
+    padding: 15px 70px;
+  }
+}
+
+#card{
+  background-color: $color-grey;
+}
+
+.subtitle h1{
+    padding-top: 68px;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    &:before{
+      content: '';
+      position: absolute;
+      transform: translate(-50%); /*位置調整*/
+      left: 50%;
+      bottom: -50px;  /*線の上下位置*/
+      width: 80px;
+      height: 5px;
+      background-color: $color-purple;
+    }
+}
+
+.items{
+  margin: 113px auto 0;
+  padding-bottom: 117px;
+  width: 1100px;
+  // Flexboxを使って子要素を横並びにする
+  display: flex;
+  // 子要素を左から右に配置
+  flex-direction: row;
+  // 子要素を折り返し、複数行に上から下へ並べる
+  flex-wrap: wrap;
+  @include mq('tab'){
+    width: 720px;
+  }
+  @include mq('sp'){
+    width: 430px;
+  }
+}
+
+.item{
+  margin: 0 30px 20px 0;
+  width: calc(33.33333333% - 60px / 3);  //calc関数 パーセントと固定値でも計算できる
+  // 3の倍数
+  &:nth-child(3n){
+    margin-right: 0;
+  }
+  @include mq('tab'){
+    margin: 0 20px 20px 0;
+    width: calc(50% - 20px / 2);
+    &:nth-child(3n){
+      margin-right: 20px;
+    }
+    &:nth-child(2n){
+      margin-right: 0;
+    }
+  }
+  @include mq('sp'){
+    margin: 0 0 20px;
+    width: 100%;
+  }
+}
+
+.card{
+  padding: 16px;
+}
+
+.card-img{
+  border-radius: 0;
+  height: 161px;
+}
+
+.card-body{
+  padding: 26px 0 28px;
+  font-weight: bold;
+}
+
+.card-title{
+  margin-bottom: 20px;
+}
